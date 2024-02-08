@@ -1,4 +1,4 @@
-package com.capstonesmartmirror.demo;
+package com.capstonesmartmirror;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
