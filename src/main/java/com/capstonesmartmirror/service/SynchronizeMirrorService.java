@@ -36,8 +36,7 @@ public class SynchronizeMirrorService {
                 user,
                 travelSuggestionService.getTravelSuggestion(
                         nextEvent.getLocation(),
-                       nextEvent.getStartDate(),
-                        forecast
+                       nextEvent.getStartDate()
                 ),
                 new SynchronizeResp.ForecastList(
                         currenrtForecast,

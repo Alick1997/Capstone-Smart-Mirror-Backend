@@ -3,10 +3,7 @@ package com.capstonesmartmirror.controller;
 import com.capstonesmartmirror.model.User;
 import com.capstonesmartmirror.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,7 +14,12 @@ public class mobileController {
 
     private final UserService userService;
 
-    @GetMapping("/profile/{userId}")
+    @GetMapping("/users")
+    public List<User> getUsers() {
+        return userService.getUsers();
+    }
+
+    @GetMapping("/users/{userId}")
     public User getUser(@PathVariable String userId) {
         System.err.println("Userid is: " + userId);
         var user = userService.getUserById(userId);
@@ -25,8 +27,16 @@ public class mobileController {
         return user;
     }
 
-    @GetMapping("/users")
-    public List<User> getUsers() {
-        return userService.getUsers();
+    @PutMapping("/users/{userId}")
+    public User updateUser(
+            @PathVariable String userId,
+            @RequestBody User user
+    ) {
+        return userService.saveUser(user);
+    }
+
+    @PostMapping("/users")
+    public User createUser(User user) {
+        return userService.saveUser(user);
     }
 }
