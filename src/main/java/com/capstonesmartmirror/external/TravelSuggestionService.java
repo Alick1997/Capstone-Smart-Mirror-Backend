@@ -1,7 +1,6 @@
 package com.capstonesmartmirror.external;
 
 import com.capstonesmartmirror.dto.Address;
-import com.capstonesmartmirror.dto.Forecast;
 import com.capstonesmartmirror.dto.TravelSuggestion;
 import org.springframework.stereotype.Service;
 
@@ -14,8 +13,7 @@ public class TravelSuggestionService {
 
     public TravelSuggestion getTravelSuggestion(
             Address location,
-            Date arrivalTime,
-            Forecast forecast
+            Date arrivalTime
     ) {
         Calendar cal = Calendar.getInstance();
         cal.setTime(arrivalTime);

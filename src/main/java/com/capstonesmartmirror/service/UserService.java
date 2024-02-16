@@ -16,12 +16,19 @@ public class UserService {
     private final UserRepository userRepository;
 
     public User getUserById(String userId) {
-        var user = userRepository.findByUserId(userId);
-        System.err.println("user id: " + user);
-        return user;
+        return userRepository.findByUserId(userId);
     }
 
     public List<User> getUsers() {
         return userRepository.findAll();
+    }
+
+    public User saveUser(User user) {
+        return userRepository.save(user);
+    }
+
+    public static boolean verifyUserRequest(User user) {
+        //ToDo: Implement verification
+        return true;
     }
 }
